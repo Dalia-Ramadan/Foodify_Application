@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodify/screens/welcome.dart';
+import 'package:foodify/screens/onboarding_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => WelcomeScreen()),
+          MaterialPageRoute(builder: (context) => OnboardingScreen()),
         ),
       child: Scaffold(
         backgroundColor: Color(0xfffb7324),
