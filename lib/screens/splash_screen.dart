@@ -1,16 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:foodify/screens/onboarding_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 3), () {
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => OnboardingScreen()),
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => OnboardingScreen()),
-        ),
+        context,
+        MaterialPageRoute(builder: (context) => OnboardingScreen()),
+      ),
       child: Scaffold(
         backgroundColor: Color(0xfffb7324),
         body: Center(
@@ -23,7 +41,10 @@ class SplashScreen extends StatelessWidget {
                 CircleAvatar(
                   radius: 60,
                   backgroundColor: Color(0xfffb7324),
-                  child: Image.asset('assets/images/logo.jpg',color: Color(0xffffffff),),
+                  child: Image.asset(
+                    'assets/images/logo.jpg',
+                    color: Color(0xffffffff),
+                  ),
                 ),
                 Column(
                   children: [
